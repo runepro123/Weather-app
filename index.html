@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="appTitle">Weather App</h1>
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+            <option value="de">Duits</option>
+            <option value="fr">Frans</option>
+            <option value="es">spanish</option>
+        </select>
+        <p id="translationPercentage">Translation: 0%</p>
+        <select id="citySelect">
+            <option value="">Select a city</option>
+            <option value="London">London</option>
+            <option value="New York">New York</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Paris">Paris</option>
+            <option value="Sydney">Sydney</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Brussels">Brussels</option>
+            <option value="Antwerp">Antwerp</option>
+            <option value="Ghent">Ghent</option>
+            <option value="Bruges">Bruges</option>
+            <option value="Namur">Namur</option>
+            <option value="Liège">Liège</option>
+        </select>
+        <input type="text" id="manualCityInput" placeholder="Or enter a city name">
+        <button id="searchButton">Get Weather</button>
+        <div id="weatherResult" class="weather-result">
+            <div id="currentWeather" class="current-weather">
+                <h2 id="cityName"></h2>
+                <p id="temperature"></p>
+                <p id="condition"></p>
+                <img id="weatherIcon" src="" alt="Weather Icon">
+            </div>
+            <div id="forecast" class="forecast">
+                <h3>Daily Forecast</h3>
+                <!-- Daily forecast will be dynamically generated here -->
+            </div>
+            <div id="hourlyForecast" class="hourly-forecast">
+                <h3>Hourly Forecast</h3>
+                <!-- Hourly forecast will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
