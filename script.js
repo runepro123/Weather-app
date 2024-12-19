@@ -226,46 +226,47 @@ const translations = {
         high: "Alto",
         low: "Bajo",
         errorCityNotFound: "Ciudad no encontrada",
+        pleaseSelectCity: "Seleccione o ingrese una ciudad.",
         weatherIn: "Tiempo en",
         weatherConditions: {
-            Clear: "Clear",
-            Clouds: "Cloudy",
-            Rain: "Rain",
-            Snow: "Snow",
-            Thunderstorm: "Thunderstorm",
-            Mist: "Mist",
-            Fog: "Fog",
-            Drizzle: "Drizzle",
-            Smoke: "Smoke",
-            Haze: "Haze",
-            Dust: "Dust",
-            Sand: "Sand",
-            Ash: "Ash",
-            Squall: "Squall",
+            Clear: "Despejado",
+            Clouds: "Nublado",
+            Rain: "Lluvia",
+            Snow: "Nieve",
+            Thunderstorm: "Tormenta",
+            Mist: "Niebla",
+            Fog: "Niebla",
+            Drizzle: "Llovizna",
+            Smoke: "Humo",
+            Haze: "Bruma",
+            Dust: "Polvo",
+            Sand: "Arena",
+            Ash: "Ceniza",
+            Squall: "Chubasco",
             Tornado: "Tornado",
         },
         cities: {
-            London: "London",
-            "New York": "New York",
-            Tokyo: "Tokyo",
-            Paris: "Paris",
-            Sydney: "Sydney",
-            Mumbai: "Mumbai",
-            Brussels: "Brussels",
-            Antwerp: "Antwerp",
-            Ghent: "Ghent",
-            Bruges: "Bruges",
+            London: "Londres",
+            "New York": "Nueva York",
+            Tokyo: "Tokio",
+            Paris: "París",
+            Sydney: "Sídney",
+            Mumbai: "Bombay",
+            Brussels: "Bruselas",
+            Antwerp: "Amberes",
+            Ghent: "Gante",
+            Bruges: "Brujas",
             Namur: "Namur",
-            Liège: "Liège",
+            Liège: "Lieja",
         },
         days: {
-            Monday: "Monday",
-            Tuesday: "Tuesday",
-            Wednesday: "Wednesday",
-            Thursday: "Thursday",
-            Friday: "Friday",
-            Saturday: "Saturday",
-            Sunday: "Sunday"
+            Monday: "Lunes",
+            Tuesday: "Martes",
+            Wednesday: "Miércoles",
+            Thursday: "Jueves",
+            Friday: "Viernes",
+            Saturday: "Sábado",
+            Sunday: "Domingo"
         }
     }
 };
@@ -462,7 +463,7 @@ function calculateTranslationPercentage(language) {
             if (objLang && objLang.hasOwnProperty(key)) {
                 if (typeof objEn[key] === 'object' && typeof objLang[key] === 'object') {
                     traverse(objEn[key], objLang[key]);
-                } else if (objEn[key] !== objLang[key]) {
+                } else if (objEn[key] !== objLang[key] && objLang[key] !== undefined) {
                     translatedKeys++;
                 }
             }
