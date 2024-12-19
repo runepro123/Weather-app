@@ -1,7 +1,6 @@
 const apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // Your OpenWeatherMap API key
 const searchButton = document.getElementById("searchButton");
 const languageSelect = document.getElementById("languageSelect");
-const citySelect = document.getElementById("citySelect");
 const manualCityInput = document.getElementById("manualCityInput");
 const weatherResult = document.getElementById("weatherResult");
 const cityName = document.getElementById("cityName");
@@ -82,14 +81,14 @@ const translations = {
             Snow: "Sneeuw",
             Thunderstorm: "Onweer",
             Mist: "Mist",
-            Fog: "Fog",
+            Fog: "Mist",
             Drizzle: "Motregen",
             Smoke: "Rook",
-            Haze: "Haze",
+            Haze: "Nevel",
             Dust: "Stof",
             Sand: "Zand",
             Ash: "As",
-            Squall: "Squall",
+            Squall: "Windvlaag",
             Tornado: "Tornado",
         },
         cities: {
@@ -285,7 +284,7 @@ languageSelect.addEventListener("change", (event) => {
 });
 
 searchButton.addEventListener("click", () => {
-    const cityNameInput = citySelect.value || manualCityInput.value.trim();
+    const cityNameInput = manualCityInput.value.trim();
     if (cityNameInput) {
         fetchWeather(cityNameInput);
     } else {
@@ -310,15 +309,6 @@ function updateLanguage(language) {
     forecast.querySelector('h3').textContent = translations[language].dailyForecast;
     hourlyForecast.querySelector('h3').textContent = translations[language].hourlyForecast;
     manualCityInput.placeholder = translations[language].pleaseSelectCity;
-
-    // Update city select options
-    citySelect.innerHTML = '<option value="">Select a city</option>';
-    for (const city in translations[language].cities) {
-        const option = document.createElement('option');
-        option.value = city;
-        option.textContent = translations[language].cities[city];
-        citySelect.appendChild(option);
-    }
 }
 
 function fetchWeather(city) {
@@ -477,5 +467,9 @@ function calculateTranslationPercentage(language) {
 
 function updateTranslationPercentage(language) {
     const percentage = calculateTranslationPercentage(language);
-    translationPercentageDisplay.textContent = `Translation: ${percentage}%`;
+    if (percentage === 100) {
+        translationPercentageDisplay.textContent = "100% translated";
+    } else {
+        translationPercentageDisplay.textContent = `Translation: ${percentage}%`;
+    }
 }
